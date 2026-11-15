@@ -1,0 +1,331 @@
+.work-table {
+  --felt: #102c24;
+  --felt-line: #648477;
+  --ivory: #f7f0de;
+  position: relative;
+  border-radius: 1.45rem;
+  padding: clamp(1rem, 3vw, 2.25rem);
+  background-color: var(--felt);
+  background-image:
+    radial-gradient(ellipse at 38% 2%, #315646, transparent 66%),
+    repeating-linear-gradient(126deg, #fff0 0 3px, #ffffff05 4px 5px);
+  color: var(--ivory);
+  isolation: isolate;
+}
+
+.work-table button, .project-dialog button { font: inherit; cursor: pointer; }
+.work-table button:focus-visible { outline: 2px solid #ffe6a7; outline-offset: 5px; }
+.work-table [hidden] { display: none; }
+
+.table-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .7rem 1rem;
+  margin-bottom: clamp(1rem, 2vw, 1.7rem);
+}
+.table-toolbar p { color: #d5e7dd; font-size: .93rem; }
+.table-view {
+  padding: .45rem .8rem;
+  border: 1px solid var(--felt-line);
+  border-radius: 2rem;
+  background: #102c2499;
+  color: var(--ivory);
+}
+.table-view:hover { background: #345748; }
+.table-view[aria-disabled="true"], .deck-button[aria-disabled="true"] { cursor: wait; }
+
+.table-layout {
+  display: grid;
+  align-items: center;
+  gap: clamp(1.2rem, 2.4vw, 2.2rem);
+}
+.work-table[data-view="deck"] .table-layout {
+  grid-template-columns: minmax(0, 1fr) clamp(6.8rem, 15vw, 11rem);
+}
+.work-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(.8rem, 2vw, 1.4rem);
+}
+.work-card {
+  min-width: 0;
+  position: relative;
+  color: #1e2821;
+}
+.work-summary {
+  height: 100%;
+  padding: 1.25rem;
+  border-radius: .85rem;
+  background: var(--ivory);
+}
+.work-summary h3, .dialog-copy h3 {
+  margin-block: .45rem .55rem;
+  font-size: clamp(1.4rem, 4vw, 2.35rem);
+  letter-spacing: -.055em;
+  line-height: 1;
+  overflow-wrap: anywhere;
+}
+.work-description { color: #43534a; }
+
+.work-table .card-front {
+  display: grid;
+  position: relative;
+  grid-template-rows: minmax(6rem, 1fr) auto;
+  height: 100%;
+  min-height: clamp(13.5rem, 22vw, 17.6rem);
+  width: 100%;
+  overflow: hidden;
+  padding: 0;
+  border: 1px solid #f6ead1;
+  border-radius: .9rem;
+  background: #f8f0df;
+  color: #1e2821;
+  text-align: left;
+  box-shadow: 0 .65rem 1.15rem #08181288, 0 .15rem 0 #c9bd9e;
+  transition: transform 250ms cubic-bezier(.19,.8,.31,1.2), box-shadow 250ms;
+}
+.card-front:hover, .card-front:focus-visible {
+  z-index: 1;
+  transform: translateY(-.28rem) rotate(-1.3deg);
+  box-shadow: 0 .85rem 1.5rem #081812a0, 0 .15rem 0 #c9bd9e;
+}
+.card-copy {
+  display: grid;
+  align-content: start;
+  gap: .35rem;
+  min-height: 6.2rem;
+  padding: .85rem 2.45rem .85rem .8rem;
+}
+.card-copy .label {
+  font-size: .63rem;
+  letter-spacing: .075em;
+}
+.card-title {
+  display: block;
+  font-size: clamp(1.03rem, 2.5vw, 1.65rem);
+  font-weight: 750;
+  letter-spacing: -.055em;
+  line-height: 1.04;
+  overflow-wrap: anywhere;
+}
+.card-open {
+  position: absolute;
+  right: .7rem;
+  bottom: .73rem;
+  display: grid;
+  place-items: center;
+  width: 1.55rem;
+  aspect-ratio: 1;
+  border: 1px solid #35634c;
+  border-radius: 50%;
+  color: #214c37;
+}
+
+.card-motif, .dialog-motif {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  background: #296048;
+  isolation: isolate;
+}
+.card-motif::before, .card-motif::after, .dialog-motif::before, .dialog-motif::after {
+  position: absolute;
+  content: "";
+  inset: 0;
+  pointer-events: none;
+}
+[data-project="haul"] :is(.card-motif, .dialog-motif) {
+  background:
+    linear-gradient(156deg, transparent 47%, #f5c888 48% 49%, #f5c88888 49% 50%, transparent 51%),
+    repeating-radial-gradient(ellipse at 17% 92%, transparent 0 13px, #d8ba87a0 14px 15px, transparent 16px 23px),
+    linear-gradient(130deg, #414d3a, #848a56);
+}
+[data-project="haul"] :is(.card-motif, .dialog-motif)::after {
+  inset: 31% 25% 28% 55%;
+  border: 1px solid #ffda9f;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  transform: rotate(-26deg);
+}
+[data-project="alkax"] :is(.card-motif, .dialog-motif) {
+  background:
+    linear-gradient(#a1dfad55 1px, transparent 1px) center / 1.45rem 1.45rem,
+    linear-gradient(90deg, #a1dfad55 1px, transparent 1px) center / 1.45rem 1.45rem,
+    radial-gradient(ellipse at 50% 40%, #437863, #183a30);
+}
+[data-project="alkax"] :is(.card-motif, .dialog-motif)::after {
+  inset: 50% auto auto 50%;
+  width: 1.45rem;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  background: #bdffd9;
+  box-shadow: 0 0 0 7px #bdffd935, 0 0 0 1.45rem #bdffd91f, 0 0 1.7rem #bdffd990;
+}
+[data-project="volxpr"] :is(.card-motif, .dialog-motif) {
+  background:
+    radial-gradient(circle at 39% 49%, transparent 0 24%, #ffcd9c 25% 26%, transparent 27%),
+    radial-gradient(circle at 61% 49%, transparent 0 24%, #ffcd9c 25% 26%, transparent 27%),
+    radial-gradient(ellipse at 46% 57%, #c67957, #69403c);
+}
+[data-project="volxpr"] :is(.card-motif, .dialog-motif)::after {
+  inset: 50% auto auto 50%;
+  width: .7rem;
+  aspect-ratio: 1;
+  background: #fff0be;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+[data-project="outcome"] :is(.card-motif, .dialog-motif) {
+  background:
+    repeating-linear-gradient(90deg, #dce9e228 0 1px, transparent 1px 22px),
+    linear-gradient(140deg, #344154, #667a79);
+}
+[data-project="outcome"] :is(.card-motif, .dialog-motif)::before {
+  inset: 31% 15%;
+  background: linear-gradient(145deg, transparent 46%, #e4edd6 47% 50%, transparent 51%) right top / 50% 54% no-repeat,
+    linear-gradient(35deg, transparent 46%, #e4edd6 47% 50%, transparent 51%) right bottom / 50% 54% no-repeat,
+    linear-gradient(#e4edd6, #e4edd6) left center / 55% 3px no-repeat;
+}
+[data-project="mocklite"] :is(.card-motif, .dialog-motif) {
+  background:
+    repeating-linear-gradient(135deg, #f7c66b55 0 1px, transparent 1px 12px),
+    linear-gradient(135deg, #583e32, #9e7145);
+}
+[data-project="mocklite"] :is(.card-motif, .dialog-motif)::before {
+  inset: 22% 35%;
+  border: 2px solid #ffe0a5;
+  border-radius: .25rem;
+  transform: rotate(-13deg);
+  box-shadow: .5rem .5rem 0 #422f4388, .5rem .5rem 0 1px #ffe0a5;
+}
+[data-project="widgets"] :is(.card-motif, .dialog-motif) {
+  background:
+    radial-gradient(#f4dbfb66 1px, transparent 1.5px) center / 12px 12px,
+    linear-gradient(135deg, #4f3e58, #775a77);
+}
+[data-project="widgets"] :is(.card-motif, .dialog-motif)::before {
+  inset: 27% 29% 35% 24%;
+  border: 1.5px solid #f4dbfb;
+  border-radius: 1rem 1rem 1rem .18rem;
+  background: #62496c;
+  box-shadow: 1rem 1rem 0 #62496c, 1rem 1rem 0 1.5px #f4dbfb;
+}
+
+.deck-pocket {
+  padding: .8rem .22rem .65rem;
+  border: 1px dashed var(--felt-line);
+  border-radius: 1rem;
+}
+.deck-button {
+  display: grid;
+  justify-items: center;
+  gap: .2rem;
+  width: 100%;
+  padding: .55rem .2rem;
+  border: 0;
+  background: transparent;
+  color: var(--ivory);
+}
+.deck-stack {
+  position: relative;
+  display: block;
+  width: clamp(3.8rem, 7.4vw, 5.6rem);
+  aspect-ratio: 5 / 7;
+  margin: .25rem .55rem .85rem;
+  perspective: 500px;
+}
+.deck-stack > span {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  border: 1px solid #ffdca1;
+  border-radius: .56rem;
+  background:
+    repeating-linear-gradient(45deg, #ffe0a83e 0 1px, transparent 1px 5px),
+    repeating-linear-gradient(-45deg, #ffe0a83e 0 1px, transparent 1px 5px),
+    #805036;
+  box-shadow: inset 0 0 0 4px #61432d, 0 .2rem .65rem #0b2119;
+  transition: transform 300ms cubic-bezier(.19,.81,.31,1.15);
+}
+.deck-stack > span:nth-child(1) { transform: translate(-8%, 4%) rotate(-12deg); }
+.deck-stack > span:nth-child(2) { transform: translate(8%, 2%) rotate(10deg); }
+.deck-stack > span:nth-child(3) { transform: rotate(-3deg); }
+.deck-button:hover .deck-stack > span:nth-child(1), .deck-button:focus-visible .deck-stack > span:nth-child(1) { transform: translate(-17%, 2%) rotate(-20deg); }
+.deck-button:hover .deck-stack > span:nth-child(2), .deck-button:focus-visible .deck-stack > span:nth-child(2) { transform: translate(17%, 2%) rotate(19deg); }
+.deck-stack i { width: 34%; aspect-ratio: 1; border: 1px solid #ffe0a8; background: #875130; transform: rotate(45deg); }
+.deck-label { font-weight: 750; }
+#deck-count { color: #d5e7dd; font-size: .76rem; }
+
+.project-dialog {
+  width: min(32rem, calc(100% - 2rem));
+  max-height: calc(100% - 2rem);
+  max-height: calc(100dvh - 2rem);
+  padding: 0;
+  border: 1px solid #fff3da;
+  border-radius: 1rem;
+  background: #fbf4e5;
+  color: #1e2821;
+  box-shadow: 0 1.4rem 4rem #081a1490;
+}
+.project-dialog::backdrop { background: #081b16ac; }
+.project-dialog-inner { position: relative; }
+.project-dialog form { position: absolute; z-index: 1; inset: .7rem .7rem auto auto; }
+.project-dialog .dialog-close {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  aspect-ratio: 1;
+  padding: 0;
+  border: 1px solid #3e6456;
+  border-radius: 50%;
+  background: #fbf4e5;
+  color: #213a31;
+  font-size: 1.55rem;
+  line-height: 1;
+}
+.dialog-motif { height: clamp(6rem, 24vh, 11rem); }
+.dialog-copy { padding: clamp(1.2rem, 5vw, 2rem); }
+.dialog-copy h3 { font-size: clamp(2rem, 7vw, 3.4rem); }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (max-width: 55rem) {
+  .work-table[data-view="deck"] .table-layout { grid-template-columns: minmax(0, 1fr); }
+  .deck-pocket { grid-row: 1; padding: .15rem .55rem; }
+  .deck-button { grid-template-columns: auto 1fr auto; align-items: center; justify-items: start; gap: .75rem; padding: .18rem 0; }
+  .deck-stack { width: 1.7rem; margin: .25rem .35rem; }
+  .deck-stack > span { border-radius: .23rem; box-shadow: inset 0 0 0 2px #61432d; }
+}
+@media (max-width: 42rem) {
+  .work-cards { grid-template-columns: minmax(0, 1fr); }
+  .work-table .card-front {
+    grid-template-columns: 29% minmax(0, 1fr);
+    grid-template-rows: 1fr;
+    min-height: 5.3rem;
+  }
+  .card-copy { min-height: 0; align-content: center; }
+  .card-open { bottom: 50%; transform: translateY(50%); }
+}
+@media (min-width: 42.001rem) {
+  .card-copy .label { min-height: 2.3em; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .card-front, .deck-stack > span { transition: none; }
+  .card-front:hover, .card-front:focus-visible { transform: none; }
+}
+
+@media (min-width: 55.001rem) {
+  .deck-pocket { grid-column: 2; grid-row: 1; }
+  .work-cards { grid-column: 1; grid-row: 1; }
+}
