@@ -7,6 +7,8 @@
   <meta name="description" content="Jean Marc Mbouma leads Software and Data Engineering at Mine Tech Services and co-owns Bid On Software, the company behind Alkax.">
   <title>Jean Marc Mbouma — Software and Data Engineering</title>
   <link rel="stylesheet" href="./portfolio.css">
+  <link rel="stylesheet" href="./work-table.css">
+  <script src="./work-table.js" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -32,54 +34,85 @@
       <div class="section-heading">
         <h2 id="work-title">Selected work</h2>
       </div>
-      <article class="mining-work">
-        <div>
-          <p class="label">Mine Tech Services</p>
-          <h3>Haul Road Explorer</h3>
+      <div class="work-table">
+        <div class="table-toolbar" hidden>
+          <p>Open a card to explore a project.</p>
+          <button class="table-view" type="button" aria-expanded="false" aria-controls="work-cards">View all projects</button>
         </div>
-        <div>
-          <p>I lead engineering for Haul Road Explorer, which brings fleet, telemetry, safety and inspection data together on a map so mine teams can see where to investigate and act.</p>
-          <a class="text-link" href="https://www.minetechservices.com/mining-software/haul-road-explorer-hre">Explore Haul Road Explorer <span class="arrow arrow-external" aria-hidden="true"></span></a>
+        <div class="table-layout">
+          <div class="deck-pocket" hidden>
+            <button class="deck-button" type="button" aria-describedby="deck-count">
+              <span class="deck-stack" aria-hidden="true">
+                <span></span><span></span><span><i></i></span>
+              </span>
+              <span class="deck-label">Shuffle deck</span>
+              <span id="deck-count"></span>
+            </button>
+          </div>
+          <div class="work-cards" id="work-cards">
+            <article class="work-card" data-project="haul">
+              <div class="work-summary">
+                <p class="label">Mine Tech Services</p>
+                <h3>Haul Road Explorer</h3>
+                <p class="work-description">I lead engineering for Haul Road Explorer, which brings fleet, telemetry, safety and inspection data together on a map so mine teams can see where to investigate and act.</p>
+                <a class="text-link" href="https://www.minetechservices.com/mining-software/haul-road-explorer-hre">Explore Haul Road Explorer <span class="arrow arrow-external" aria-hidden="true"></span></a>
+              </div>
+            </article>
+            <article class="work-card" data-project="alkax">
+              <div class="work-summary">
+                <p class="label">Bid On Software · Digital addressing</p>
+                <h3>Alkax</h3>
+                <p class="work-description">Alkax helps people find and share precise locations, including places where street addresses are hard to use. It also gives developers tools to bring location sharing into their own products.</p>
+                <a class="text-link" href="https://alkax.io/">Visit Alkax <span class="arrow arrow-external" aria-hidden="true"></span></a>
+              </div>
+            </article>
+            <article class="work-card" data-project="volxpr">
+              <div class="work-summary">
+                <p class="label">Community software</p>
+                <h3>VolXpr</h3>
+                <p class="work-description">A community volunteering platform for requesting help, offering time, and coordinating shifts. It uses Alkax to share locations when volunteers need them.</p>
+              </div>
+            </article>
+            <article class="work-card" data-project="outcome">
+              <div class="work-summary">
+                <p class="label">.NET libraries</p>
+                <h3>BbQ.Outcome</h3>
+                <p class="work-description">Typed results for .NET applications, with explicit success and failure paths that callers can handle.</p>
+                <a class="text-link" href="https://github.com/JeanMarcMbouma/Outcome">View Outcome on GitHub <span class="arrow arrow-external" aria-hidden="true"></span></a>
+              </div>
+            </article>
+            <article class="work-card" data-project="mocklite">
+              <div class="work-summary">
+                <p class="label">.NET testing</p>
+                <h3>MockLite</h3>
+                <p class="work-description">A lightweight .NET mocking library for setting up collaborators and verifying interactions in unit tests.</p>
+                <a class="text-link" href="https://github.com/JeanMarcMbouma/MockLite">View MockLite on GitHub <span class="arrow arrow-external" aria-hidden="true"></span></a>
+              </div>
+            </article>
+            <article class="work-card" data-project="widgets">
+              <div class="work-summary">
+                <p class="label">Conversational interfaces</p>
+                <h3>BbQ.ChatWidgets</h3>
+                <p class="work-description">Reusable widgets for bringing structured interactions into chat applications.</p>
+                <a class="text-link" href="https://github.com/JeanMarcMbouma/BbQ.ChatWidgets">View ChatWidgets on GitHub <span class="arrow arrow-external" aria-hidden="true"></span></a>
+              </div>
+            </article>
+          </div>
         </div>
-      </article>
-      <article class="feature">
-        <div class="feature-copy">
-          <p class="label">Bid On Software · Digital addressing</p>
-          <h3>Alkax</h3>
-          <p>Alkax helps people find and share precise locations, including places where street addresses are hard to use. It also gives developers tools to bring location sharing into their own products.</p>
-          <a class="text-link" href="https://alkax.io/">Visit Alkax <span class="arrow arrow-external" aria-hidden="true"></span></a>
-        </div>
-        <div class="grid-art" aria-hidden="true">
-          <span class="grid-marker"></span>
-          <span class="grid-caption">Alkax grid address</span>
-        </div>
-      </article>
-
-      <div class="projects">
-        <article class="project">
-          <p class="label">Community software</p>
-          <h3>VolXpr</h3>
-          <p>A community volunteering platform for requesting help, offering time, and coordinating shifts. It uses Alkax to share locations when volunteers need them.</p>
-        </article>
-        <article class="project">
-          <p class="label">.NET libraries</p>
-          <h3>BbQ.Outcome</h3>
-          <p>Typed results for .NET applications, with explicit success and failure paths that callers can handle.</p>
-          <a class="text-link" href="https://github.com/JeanMarcMbouma/Outcome">View Outcome on GitHub <span class="arrow arrow-external" aria-hidden="true"></span></a>
-        </article>
-        <article class="project">
-          <p class="label">.NET testing</p>
-          <h3>MockLite</h3>
-          <p>A lightweight .NET mocking library for setting up collaborators and verifying interactions in unit tests.</p>
-          <a class="text-link" href="https://github.com/JeanMarcMbouma/MockLite">View MockLite on GitHub <span class="arrow arrow-external" aria-hidden="true"></span></a>
-        </article>
-        <article class="project">
-          <p class="label">Conversational interfaces</p>
-          <h3>BbQ.ChatWidgets</h3>
-          <p>Reusable widgets for bringing structured interactions into chat applications.</p>
-          <a class="text-link" href="https://github.com/JeanMarcMbouma/BbQ.ChatWidgets">View ChatWidgets on GitHub <span class="arrow arrow-external" aria-hidden="true"></span></a>
-        </article>
+        <p class="table-status visually-hidden" role="status"></p>
       </div>
+      <dialog class="project-dialog" aria-labelledby="project-title">
+        <div class="project-dialog-inner">
+          <form method="dialog"><button class="dialog-close" autofocus aria-label="Close project" value="close">×</button></form>
+          <div class="dialog-motif" aria-hidden="true"></div>
+          <div class="dialog-copy">
+            <p class="label"></p>
+            <h3 id="project-title"></h3>
+            <p class="work-description"></p>
+            <div class="dialog-link"></div>
+          </div>
+        </div>
+      </dialog>
     </section>
 
     <section class="about" id="about" aria-labelledby="about-title">
