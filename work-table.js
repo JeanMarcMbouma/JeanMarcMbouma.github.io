@@ -85,7 +85,7 @@ function setupWorkTable(table, dialog) {
     viewButton.setAttribute("aria-expanded", String(allProjects));
     deckPocket.hidden = allProjects;
     showCards(allProjects ? projects : hand);
-    count.textContent = `${inDeck.length} in the deck`;
+    count.textContent = `${hand.length} of ${projects.length} shown`;
   }
 
   viewButton.addEventListener("click", () => {
