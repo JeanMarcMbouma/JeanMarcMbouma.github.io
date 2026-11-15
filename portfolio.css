@@ -198,3 +198,33 @@ h2 { font-size: clamp(2rem, 5vw, 3.45rem); line-height: 1; letter-spacing: -.065
   .feature, .projects, .about { grid-template-columns: 1fr; }
   .grid-art { min-height: 12rem; }
 }
+
+.arrow {
+  position: relative;
+  display: inline-block;
+  width: .8em;
+  height: .8em;
+  vertical-align: -.03em;
+  transform: rotate(var(--arrow-angle, 0deg));
+}
+.arrow::before, .arrow::after {
+  position: absolute;
+  content: "";
+}
+.arrow::before {
+  inset: 10% 10% auto auto;
+  width: 64%;
+  height: 64%;
+  border-top: 1.5px solid;
+  border-right: 1.5px solid;
+}
+.arrow::after {
+  width: 96%;
+  height: 1.5px;
+  top: 46%;
+  left: 3%;
+  background: currentColor;
+  transform: rotate(-45deg);
+}
+.arrow-up { --arrow-angle: -45deg; }
+.arrow-down { --arrow-angle: 135deg; }
