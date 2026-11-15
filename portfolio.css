@@ -81,6 +81,7 @@ nav a:hover, .footer a:hover { text-decoration: underline; text-underline-offset
   gap: 1.4rem 3.5rem;
 }
 .hero-foot p { max-width: 37ch; color: var(--muted); font-size: clamp(1.05rem, 2.2vw, 1.35rem); }
+.hero-foot strong { color: var(--ink); }
 
 .button {
   display: inline-flex;
@@ -106,6 +107,17 @@ nav a:hover, .footer a:hover { text-decoration: underline; text-underline-offset
   border-top: 1px solid var(--line);
 }
 h2 { font-size: clamp(2rem, 5vw, 3.45rem); line-height: 1; letter-spacing: -.065em; }
+
+.mining-work {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .9rem 3rem;
+  margin-bottom: 1rem;
+  padding: clamp(1.4rem, 3.2vw, 2.5rem);
+  background: #e8ede5;
+}
+.mining-work h3 { margin-top: .35rem; font-size: clamp(1.7rem, 4vw, 2.8rem); line-height: 1.08; letter-spacing: -.065em; }
+.mining-work p:not(.label) { max-width: 46ch; color: var(--muted); }
 
 .feature {
   display: grid;
@@ -192,10 +204,12 @@ h2 { font-size: clamp(2rem, 5vw, 3.45rem); line-height: 1; letter-spacing: -.065
 }
 .about h2 { margin-top: .6rem; }
 .about p:not(.label) { color: var(--muted); max-width: 48ch; }
+.about p + p { margin-top: .7rem; }
+.profile-links { display: flex; flex-wrap: wrap; column-gap: 1.35rem; }
 .footer { border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
 
 @media (max-width: 40rem) {
-  .feature, .projects, .about { grid-template-columns: 1fr; }
+  .mining-work, .feature, .projects, .about { grid-template-columns: 1fr; }
   .grid-art { min-height: 12rem; }
 }
 
