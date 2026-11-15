@@ -1,13 +1,13 @@
 .work-table {
-  --felt: #102c24;
-  --felt-line: #648477;
-  --ivory: #f7f0de;
+  --felt: #172a21;
+  --felt-line: #738e75;
+  --ivory: #f3efdf;
   position: relative;
   border-radius: 1.45rem;
   padding: clamp(1rem, 3vw, 2.25rem);
   background-color: var(--felt);
   background-image:
-    radial-gradient(ellipse at 38% 2%, #315646, transparent 66%),
+    radial-gradient(ellipse at 38% 2%, #354f3e, transparent 66%),
     repeating-linear-gradient(126deg, #fff0 0 3px, #ffffff05 4px 5px);
   color: var(--ivory);
   isolation: isolate;
@@ -72,14 +72,14 @@
 .work-table .card-front {
   display: grid;
   position: relative;
-  grid-template-rows: minmax(6rem, 1fr) auto;
+  grid-template-rows: minmax(7.5rem, 1fr) auto;
   height: 100%;
-  min-height: clamp(13.5rem, 22vw, 17.6rem);
+  min-height: clamp(17.5rem, 28vw, 21rem);
   width: 100%;
   overflow: hidden;
   padding: 0;
   border: 1px solid #f6ead1;
-  border-radius: .9rem;
+  border-radius: .6rem;
   background: #f8f0df;
   color: #1e2821;
   text-align: left;
@@ -88,15 +88,15 @@
 }
 .card-front:hover, .card-front:focus-visible {
   z-index: 1;
-  transform: translateY(-.28rem) rotate(-1.3deg);
+  transform: translateY(-.38rem) rotate(-1.3deg);
   box-shadow: 0 .85rem 1.5rem #081812a0, 0 .15rem 0 #c9bd9e;
 }
 .card-copy {
   display: grid;
   align-content: start;
-  gap: .35rem;
-  min-height: 6.2rem;
-  padding: .85rem 2.45rem .85rem .8rem;
+  gap: .36rem;
+  min-height: 10rem;
+  padding: .9rem 2.4rem 1.05rem .9rem;
 }
 .card-copy .label {
   font-size: .63rem;
@@ -110,6 +110,11 @@
   line-height: 1.04;
   overflow-wrap: anywhere;
 }
+.card-teaser {
+  color: #43534a;
+  font-size: .88rem;
+  line-height: 1.38;
+}
 .card-open {
   position: absolute;
   right: .7rem;
@@ -121,6 +126,11 @@
   border: 1px solid #35634c;
   border-radius: 50%;
   color: #214c37;
+  transition: color 160ms, background-color 160ms;
+}
+.card-front:hover .card-open, .card-front:focus-visible .card-open {
+  background: #214c37;
+  color: #f8f0df;
 }
 
 .card-motif, .dialog-motif {
@@ -162,6 +172,25 @@
   transform: translate(-50%, -50%);
   background: #bdffd9;
   box-shadow: 0 0 0 7px #bdffd935, 0 0 0 1.45rem #bdffd91f, 0 0 1.7rem #bdffd990;
+}
+[data-project="clinical"] :is(.card-motif, .dialog-motif) {
+  background:
+    radial-gradient(#ccdfff45 1px, transparent 1.5px) center / 12px 12px,
+    linear-gradient(135deg, #303d61, #566d8e);
+}
+[data-project="clinical"] :is(.card-motif, .dialog-motif)::before,
+[data-project="clinical"] :is(.card-motif, .dialog-motif)::after {
+  inset: 24% 29% 25% 23%;
+  border: 1px solid #d7e4fa;
+  border-radius: .35rem;
+  background:
+    repeating-linear-gradient(to bottom, #d7e4fa 0 1px, transparent 1px 7px) center / 60% 50% no-repeat,
+    #506688;
+  transform: translate(-8%, -5%) rotate(-9deg);
+}
+[data-project="clinical"] :is(.card-motif, .dialog-motif)::after {
+  box-shadow: 0 .25rem .65rem #222c4788;
+  transform: translate(23%, 15%) rotate(10deg);
 }
 [data-project="volxpr"] :is(.card-motif, .dialog-motif) {
   background:
@@ -312,7 +341,7 @@
   .work-table .card-front {
     grid-template-columns: 29% minmax(0, 1fr);
     grid-template-rows: 1fr;
-    min-height: 5.3rem;
+    min-height: 6.2rem;
   }
   .card-copy { min-height: 0; align-content: center; }
   .card-open { bottom: 50%; transform: translateY(50%); }
@@ -321,7 +350,7 @@
   .card-copy .label { min-height: 2.3em; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .card-front, .deck-stack > span { transition: none; }
+  .card-front, .card-open, .deck-stack > span { transition: none; }
   .card-front:hover, .card-front:focus-visible { transform: none; }
 }
 

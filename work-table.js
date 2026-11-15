@@ -40,10 +40,11 @@ function setupWorkTable(table, dialog) {
     front.type = "button";
     front.setAttribute("aria-haspopup", "dialog");
     front.innerHTML = '<span class="card-motif" aria-hidden="true"></span>'
-      + '<span class="card-copy"><span class="label"></span><span class="card-title"></span></span>'
+      + '<span class="card-copy"><span class="label"></span><span class="card-title"></span><span class="card-teaser"></span></span>'
       + '<span class="card-open" aria-hidden="true"><span class="arrow"></span></span>';
     front.querySelector(".label").textContent = category;
     front.querySelector(".card-title").textContent = title;
+    front.querySelector(".card-teaser").textContent = project.dataset.teaser;
     front.addEventListener("click", () => {
       if (shuffling) return;
       dialog.dataset.project = project.dataset.project;
@@ -80,7 +81,7 @@ function setupWorkTable(table, dialog) {
 
   function renderTable() {
     table.dataset.view = allProjects ? "all" : "deck";
-    viewButton.textContent = allProjects ? "Back to the deck" : "View all projects";
+    viewButton.textContent = allProjects ? "Back to the deck" : `View all ${projects.length} projects`;
     viewButton.setAttribute("aria-expanded", String(allProjects));
     deckPocket.hidden = allProjects;
     showCards(allProjects ? projects : hand);
@@ -101,7 +102,7 @@ function setupWorkTable(table, dialog) {
     viewButton.setAttribute("aria-disabled", "true");
 
     try {
-      const nextHand = shuffled(inDeck);
+      const nextHand = shuffled(inDeck.slice(0, handSize));
       const previousHand = hand;
       if (canAnimate && !reducedMotion.matches) {
         await animateCards(previousHand, stack, false);
@@ -109,7 +110,7 @@ function setupWorkTable(table, dialog) {
 
       if (cards.contains(document.activeElement)) deckButton.focus({ preventScroll: true });
       hand = nextHand;
-      inDeck = previousHand;
+      inDeck = [...inDeck.slice(handSize), ...previousHand];
       renderTable();
 
       if (canAnimate && !reducedMotion.matches) {

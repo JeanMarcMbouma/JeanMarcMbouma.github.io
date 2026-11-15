@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f7f6f0">
+  <meta name="theme-color" content="#121c18">
   <meta name="description" content="Jean Marc Mbouma leads Software and Data Engineering at Mine Tech Services and co-owns Bid On Software, the company behind Alkax.">
   <title>Jean Marc Mbouma — Software and Data Engineering</title>
   <link rel="stylesheet" href="./portfolio.css">
@@ -12,31 +12,36 @@
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
-  <header class="shell header">
-    <a class="wordmark" href="./" aria-label="Jean Marc Mbouma, home"><span aria-hidden="true">JM<span>.</span></span></a>
-    <nav aria-label="Main navigation">
-      <a href="#work">Work</a>
-      <a href="#about">About</a>
-      <a href="https://www.linkedin.com/in/jean-marc-mbouma-525253107/">LinkedIn <span class="arrow arrow-external" aria-hidden="true"></span></a>
-    </nav>
+  <header class="masthead">
+    <div class="shell header">
+      <a class="wordmark" href="./" aria-label="Jean Marc Mbouma, home"><span aria-hidden="true">JM</span></a>
+      <nav aria-label="Main navigation">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a class="nav-profile" href="https://www.linkedin.com/in/jean-marc-mbouma-525253107/">LinkedIn <span class="arrow arrow-external" aria-hidden="true"></span></a>
+      </nav>
+    </div>
   </header>
-  <main class="shell" id="main">
+  <main id="main">
     <section class="hero" aria-labelledby="name">
-      <p class="label">Software and data engineering</p>
-      <h1 id="name">Jean Marc<br>Mbouma<span>.</span></h1>
-      <div class="hero-foot">
-        <p>I’m Head of Software and Data Engineering at <strong>Mine Tech Services</strong>, a mining consultancy. I also co-own <strong>Bid On Software</strong>, the company behind Alkax.</p>
-        <a class="button" href="#work">Explore my work <span class="arrow arrow-down" aria-hidden="true"></span></a>
+      <div class="shell hero-layout">
+        <div class="hero-copy">
+          <p class="label">Software &amp; data engineering</p>
+          <h1 id="name">Jean Marc<br>Mbouma<span>.</span></h1>
+          <p class="hero-intro">I’m Head of Software and Data Engineering at <strong>Mine Tech Services</strong> and co-owner of <strong>Bid On Software</strong>, the company behind Alkax.</p>
+          <a class="button" href="#work">Explore selected work <span class="arrow arrow-down" aria-hidden="true"></span></a>
+        </div>
+        <div class="hero-visual" aria-hidden="true"></div>
       </div>
     </section>
 
-    <section id="work" aria-labelledby="work-title">
+    <section class="shell work-section" id="work" aria-labelledby="work-title">
       <div class="section-heading">
         <h2 id="work-title">Selected work</h2>
       </div>
       <div class="work-table">
         <div class="table-toolbar" hidden>
-          <p>Open a card to explore a project.</p>
+          <p>Open a card to see what I built.</p>
           <button class="table-view" type="button" aria-expanded="false" aria-controls="work-cards">View all projects</button>
         </div>
         <div class="table-layout">
@@ -50,23 +55,31 @@
             </button>
           </div>
           <div class="work-cards" id="work-cards">
-            <article class="work-card" data-project="haul">
+            <article class="work-card" data-project="haul" data-teaser="A map for finding where mine operations need attention.">
               <div class="work-summary">
-                <p class="label">Mine Tech Services</p>
+                <p class="label">Mining technology</p>
                 <h3>Haul Road Explorer</h3>
-                <p class="work-description">I lead engineering for Haul Road Explorer, which brings fleet, telemetry, safety and inspection data together on a map so mine teams can see where to investigate and act.</p>
+                <p class="work-description">At Mine Tech Services, I lead engineering for Haul Road Explorer. It brings fleet, telemetry, safety and inspection data together on a map so mine teams can see where to investigate and act.</p>
                 <a class="text-link" href="https://www.minetechservices.com/mining-software/haul-road-explorer-hre">Explore Haul Road Explorer <span class="arrow arrow-external" aria-hidden="true"></span></a>
               </div>
             </article>
-            <article class="work-card" data-project="alkax">
+            <article class="work-card" data-project="alkax" data-teaser="Precise locations you can share, even without a street address.">
               <div class="work-summary">
-                <p class="label">Bid On Software · Digital addressing</p>
+                <p class="label">Digital addressing</p>
                 <h3>Alkax</h3>
-                <p class="work-description">Alkax helps people find and share precise locations, including places where street addresses are hard to use. It also gives developers tools to bring location sharing into their own products.</p>
+                <p class="work-description">Alkax is a Bid On Software product that helps people find and share precise locations, including places where street addresses are hard to use. Developers can bring that capability into their own products.</p>
                 <a class="text-link" href="https://alkax.io/">Visit Alkax <span class="arrow arrow-external" aria-hidden="true"></span></a>
               </div>
             </article>
-            <article class="work-card" data-project="volxpr">
+            <article class="work-card" data-project="clinical" data-teaser="Data coding and exchange tools for early-stage trials.">
+              <div class="work-summary">
+                <p class="label">Clinical research</p>
+                <h3>Phase 1 clinical trial software</h3>
+                <p class="work-description">I developed clinical data coding software for Phase 1 trials and built a tool that mapped clinical data to the CDISC Operational Data Model (ODM) so it could be exchanged between systems.</p>
+                <a class="text-link" href="https://www.cdisc.org/standards/data-exchange">About the ODM standard <span class="arrow arrow-external" aria-hidden="true"></span></a>
+              </div>
+            </article>
+            <article class="work-card" data-project="volxpr" data-teaser="A place to request help and coordinate volunteers.">
               <div class="work-summary">
                 <p class="label">Community software</p>
                 <h3>VolXpr</h3>
@@ -74,7 +87,7 @@
                 <a class="text-link" href="https://volxpr.mbouma.com/">Open VolXpr <span class="arrow arrow-external" aria-hidden="true"></span></a>
               </div>
             </article>
-            <article class="work-card" data-project="outcome">
+            <article class="work-card" data-project="outcome" data-teaser="Typed success and failure paths for .NET applications.">
               <div class="work-summary">
                 <p class="label">.NET libraries</p>
                 <h3>BbQ.Outcome</h3>
@@ -82,7 +95,7 @@
                 <a class="text-link" href="https://github.com/JeanMarcMbouma/Outcome">View Outcome on GitHub <span class="arrow arrow-external" aria-hidden="true"></span></a>
               </div>
             </article>
-            <article class="work-card" data-project="mocklite">
+            <article class="work-card" data-project="mocklite" data-teaser="Lightweight mocking for .NET unit tests.">
               <div class="work-summary">
                 <p class="label">.NET testing</p>
                 <h3>MockLite</h3>
@@ -90,7 +103,7 @@
                 <a class="text-link" href="https://github.com/JeanMarcMbouma/MockLite">View MockLite on GitHub <span class="arrow arrow-external" aria-hidden="true"></span></a>
               </div>
             </article>
-            <article class="work-card" data-project="widgets">
+            <article class="work-card" data-project="widgets" data-teaser="Reusable controls for structured interactions in chat.">
               <div class="work-summary">
                 <p class="label">Conversational interfaces</p>
                 <h3>BbQ.ChatWidgets</h3>
@@ -116,19 +129,25 @@
       </dialog>
     </section>
 
-    <section class="about" id="about" aria-labelledby="about-title">
-      <div>
-        <p class="label">About</p>
-        <h2 id="about-title">From mine sites<br>to software<span>.</span></h2>
+    <section class="shell about" id="about" aria-labelledby="about-title">
+      <div class="about-story">
+        <h2 id="about-title">How I work</h2>
+        <p class="about-lead">I start with the decisions people need to make and the information they’re missing.</p>
+        <p>Working on clinical data capture and spending time on mine sites have both shaped how I design software. I look for where people lose time, then work out what the software can make easier. The same principle guides my interest in AI that frees people to exercise their judgement.</p>
       </div>
-      <div>
-        <p>Time spent on mine sites shapes how I design software. I work across C#, .NET and Python, building tools for mine planning, short-interval control and equipment health.</p>
-        <p>I’m interested in AI that reduces routine work and gives people more time to exercise their judgement.</p>
-        <div class="profile-links">
-          <a class="text-link" href="https://www.minetechservices.com/about-mts/our-team/jean-marc-mbouma">MTS profile <span class="arrow arrow-external" aria-hidden="true"></span></a>
-          <a class="text-link" href="https://www.linkedin.com/in/jean-marc-mbouma-525253107/">LinkedIn <span class="arrow arrow-external" aria-hidden="true"></span></a>
-          <a class="text-link" href="https://github.com/JeanMarcMbouma">GitHub <span class="arrow arrow-external" aria-hidden="true"></span></a>
-        </div>
+      <div class="profile-links">
+        <a href="https://www.linkedin.com/in/jean-marc-mbouma-525253107/">
+          <span>Connect on LinkedIn<span class="profile-detail">Career history and conversation</span></span>
+          <span class="arrow arrow-external" aria-hidden="true"></span>
+        </a>
+        <a href="https://github.com/JeanMarcMbouma">
+          <span>Explore my GitHub<span class="profile-detail">Open-source libraries and tools</span></span>
+          <span class="arrow arrow-external" aria-hidden="true"></span>
+        </a>
+        <a href="https://www.minetechservices.com/about-mts/our-team/jean-marc-mbouma">
+          <span>Read my professional bio<span class="profile-detail">My work in mining technology</span></span>
+          <span class="arrow arrow-external" aria-hidden="true"></span>
+        </a>
       </div>
     </section>
   </main>
